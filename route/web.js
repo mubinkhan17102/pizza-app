@@ -1,16 +1,15 @@
+const homeController = require('../app/controllers/homeController');
+const authController = require('../app/controllers/authController');
+const cartController = require('../app/controllers/customer/cartController');
+
 function webRouter(app) {
-    app.get('/', (req, res) => {
-        res.render('home');
-    })
-    app.get('/cart', (req, res) => {
-        res.render('customers/cart');
-    })
-    app.get('/login', (req, res) => {
-        res.render('auth/login');
-    })
-    app.get('/register', (req, res) => {
-        res.render('auth/register');
-    })
+    app.get('/', homeController().index);
+    app.get('/login', authController().login);
+    app.get('/register', authController().register);
+
+    //add to cart funtionality
+    app.get('/cart', cartController().index);
+    app.post('/updatepizza', cartController().update);
 }
 
 module.exports = webRouter;

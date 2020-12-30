@@ -46,6 +46,23 @@ nav ul li a img:hover {
   background-color: #b23301;
 }
 
+nav ul li a:last-child {
+  display: flex;
+  align-items: center;
+}
+
+nav ul li a:last-child span {
+  display: inline-block;
+  position: relative;
+  background-color: #b23301;
+  color: honeydew;
+  padding: 2px 8px;
+  font-size: 16px;
+  border-radius: 30px;
+  left: 20px;
+  top: -10px;
+}
+
 .hero {
   padding-bottom: 40px;
   display: flex;
@@ -95,9 +112,9 @@ nav ul li a img:hover {
 }
 
 .product {
-  padding-top: 40px;
+  padding: 40px 0;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-column-gap: 20px;
   grid-row-gap: 30px;
 }
@@ -115,27 +132,26 @@ nav ul li a img:hover {
 }
 
 .product .card div {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  align-content: center;
+  padding-top: 10px;
 }
 
 .product .card div p {
   margin-right: 40px;
+  display: inline-block;
 }
 
 .product .card div button {
+  display: inline-block;
   margin-top: -5px;
-  border: none;
-  background-color: #FE5F1E;
+  border: 2px solid #FE5F1E;
+  background-color: transparent;
   padding: 10px 20px;
   border-radius: 20px;
   transition: all 0.4s ease-in;
 }
 
 .product .card div button:hover {
-  background-color: #b23301;
+  background-color: #FE5F1E;
   cursor: pointer;
 }
 
@@ -143,22 +159,18 @@ nav ul li a img:hover {
   outline: none;
 }
 
-.product .card h2 {
-  margin-top: 2px;
-  margin-bottom: 10px;
+.product .card h3 {
+  margin-top: 20px;
 }
 
 .product .card p {
-  margin-bottom: 20px;
+  margin: 20px 0px;
 }
 
 .cart {
+  padding-top: 40px;
   background-color: #f8f8f8;
   text-align: center;
-}
-
-.no-order {
-  padding-top: 20px;
 }
 
 .no-order img {
@@ -166,7 +178,20 @@ nav ul li a img:hover {
   margin: 0 auto;
 }
 
-.no-order button {
+.no-order p {
+  padding-bottom: 20px;
+}
+
+.no-order h3 {
+  line-height: 30px;
+  padding-bottom: 20px;
+}
+
+.no-order a {
+  text-decoration: none;
+}
+
+.no-order a button {
   display: block;
   margin: 20px auto;
   border: none;
@@ -176,9 +201,13 @@ nav ul li a img:hover {
   transition: all 0.4s ease-in;
 }
 
-.no-order button:hover {
+.no-order a button:hover {
   background-color: #b23301;
   cursor: pointer;
+}
+
+.no-order a button:focus {
+  outline: none;
 }
 
 .description {
@@ -187,6 +216,7 @@ nav ul li a img:hover {
   justify-content: space-between;
   width: 50%;
   margin: 0 auto;
+  padding-bottom: 20px;
 }
 
 .order-list {
@@ -205,6 +235,7 @@ nav ul li a img:hover {
 .product-descriptor {
   display: flex;
   align-items: center;
+  width: 250px;
 }
 
 .product-descriptor div {
@@ -248,7 +279,6 @@ nav ul li a img:hover {
   height: 35px;
   margin: 10px 0 20px 0;
   border: 1px solid #FE5F1E;
-  box-shadow: 1px 1px 8px #FE5F1E;
 }
 
 .login-form input[type=text]:focus {
@@ -261,7 +291,6 @@ nav ul li a img:hover {
   height: 35px;
   margin: 10px 0 20px 0;
   border: 1px solid #FE5F1E;
-  box-shadow: 1px 1px 8px #FE5F1E;
 }
 
 .login-form input[type=email]:focus {
@@ -274,7 +303,6 @@ nav ul li a img:hover {
   height: 35px;
   margin: 10px 0 20px 0;
   border: 1px solid #FE5F1E;
-  box-shadow: 1px 1px 8px #FE5F1E;
 }
 
 .login-form input[type=password]:focus {
