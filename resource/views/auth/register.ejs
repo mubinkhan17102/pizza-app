@@ -1,12 +1,21 @@
 <section class="login container">
-    <form action="" method="POST" class="login-form">
-        <h3>Register Here</h3>
-        <label for="name">Name: </label>
-        <input type="text" name="name">
-        <label for="email">Your Email: </label>
-        <input type="email" name="email" id="" required>
-        <label for="password">Password: </label>
-        <input type="password" name="password">
-        <input type="submit" value="Submit">
-    </form>
+  <form action="/register" method="POST" class="login-form">
+    <h3>Register Here</h3>
+    <%if(messages.error){%>
+    <p style="padding-bottom: 10px;"><%= messages.error%></p>
+    <%}%>
+    <label for="name">Name: </label>
+    <input type="text" name="name" value="<%= messages.name%>" />
+    <label for="email">Your Email: </label>
+    <input
+      type="email"
+      name="email"
+      value="<%= messages.email%>"
+      id=""
+      required
+    />
+    <label for="password">Password: </label>
+    <input type="password" name="password" />
+    <input type="submit" value="Submit" />
+  </form>
 </section>

@@ -1,10 +1,13 @@
 <section class="login container">
-    <form action="" method="POST" class="login-form">
-        <h3>Login Here</h3>
-        <label for="email">Your Email: </label>
-        <input type="email" name="email" id="" required>
-        <label for="password">Password: </label>
-        <input type="password" name="password">
-        <input type="submit" value="Submit">
-    </form>
+  <form action="/login" method="POST" class="login-form">
+    <h3>Login Here</h3>
+    <%if(messages.err){%>
+    <p class="msg"><%= messages.err%></p>
+    <%}%>
+    <label for="email">Your Email: </label>
+    <input type="email" name="email" id="" required />
+    <label for="password">Password: </label>
+    <input type="password" name="password" />
+    <input type="submit" value="Submit" />
+  </form>
 </section>

@@ -16,8 +16,12 @@
         <ul>
           <li><a href="/">Menu</a></li>
           <li><a href="#">Offer</a></li>
+          <%if(user){%>
+          <li><a href="/logout">Logout</a></li>
+          <%}else{%>
           <li><a href="/register">Register</a></li>
           <li><a href="/login">Login</a></li>
+          <%}%>
           <li>
             <a href="/cart">
               <%if(session.cart){%>

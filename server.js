@@ -8,6 +8,7 @@ const mongoose = require('mongoose');
 const session = require('express-session');
 const flash = require('express-flash');
 const MongoDbStore = require('connect-mongo')(session);
+const passport = require('passport');
 
 mongoose.connect('mongodb://localhost/pizza', {
     useNewUrlParser: true,
@@ -22,6 +23,7 @@ connection.once('open', () => {
 }).catch(err => {
     console.log('Err');
 })
+//Passport configaration
 
 const mongoStore = new MongoDbStore({
     mongooseConnection: connection,
@@ -36,18 +38,25 @@ app.use(session({
     cookie:{maxAge:1000*60*60*24}
 }));
 
+const passportInit = require('./config/passport');
+passportInit(passport);
+app.use(passport.initialize())
+app.use(passport.session());
+app.use(express.static('public'));
 app.use(express.urlencoded({extended:true}));
 app.use(express.json());
 app.use(flash());
-app.use(express.static('public'));
-app.use(expressLayout);
-app.set('views', path.join(__dirname, '/resource/views'));
-app.set('view engine', 'ejs');
 
 app.use((req, res, next) => {
     res.locals.session = req.session;
+    res.locals.user = req.user;
     next();
 })
+
+//Configure layouts and views
+app.use(expressLayout);
+app.set('views', path.join(__dirname, '/resource/views'));
+app.set('view engine', 'ejs');
 require('./route/web')(app);
 
 
